@@ -82,5 +82,12 @@ $ ->
         # handleError data.error
   , false
 
+  # Actions for the Submit button
+  # Send editor code to run against unit test
+  submitLater = (time) ->
+    alert ("Send in " + time + " seconds.")
+    #Post.delay.test
+
   # Register event handlers for widgets.
   $('#run').click (e) => runCode(worker)
+  $('#submit').click (e) => submitLater(10)
