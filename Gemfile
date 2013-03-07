@@ -50,6 +50,8 @@ gem 'redcarpet'       # Markdown renderer
 gem 'rails_admin'     # Turnkey admin interface
 gem 'delocalize'      # Fixes formatting of date/time form fields
 gem 'git'             # Git repository support
+gem 'rmagick'         # image manipulation
+gem 'carrierwave'     # attachments for models
 
 # Gems for server-side event support.
 gem 'redis'

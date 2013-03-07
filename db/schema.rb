@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130111190807) do
+ActiveRecord::Schema.define(:version => 20130307181953) do
 
   create_table "activity_logs", :force => true do |t|
     t.integer  "user_id"
@@ -129,9 +129,17 @@ ActiveRecord::Schema.define(:version => 20130111190807) do
     t.boolean "builtin",                       :default => false, :null => false
   end
 
+  create_table "images", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "filename"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "institutions", :force => true do |t|
-    t.string   "display_name"
     t.string   "domain"
+    t.string   "display_name"
     t.string   "abbreviation"
     t.string   "url_part"
     t.datetime "created_at",   :null => false
@@ -140,6 +148,7 @@ ActiveRecord::Schema.define(:version => 20130111190807) do
 
   add_index "institutions", ["abbreviation"], :name => "index_institutions_on_abbreviation", :unique => true
   add_index "institutions", ["domain"], :name => "index_institutions_on_domain", :unique => true
+  add_index "institutions", ["url_part"], :name => "index_institutions_on_url_part", :unique => true
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -156,22 +165,23 @@ ActiveRecord::Schema.define(:version => 20130111190807) do
 
   create_table "repositories", :force => true do |t|
     t.string   "type"
-    t.string   "name"
-    t.text     "description"
     t.integer  "user_id"
+    t.integer  "term_id"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
     t.integer  "assignment_offering_id"
     t.integer  "course_offering_id"
-    t.integer  "assignment_id"
+    t.text     "description"
     t.integer  "source_repository_id"
+    t.string   "name"
+    t.integer  "assignment_id"
   end
 
   create_table "system_configurations", :force => true do |t|
-    t.string   "storage_path", :default => ""
-    t.string   "work_path",    :default => ""
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.string   "storage_path"
+    t.string   "work_path"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "terms", :force => true do |t|
@@ -197,9 +207,9 @@ ActiveRecord::Schema.define(:version => 20130111190807) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.integer  "institution_id"
-    t.integer  "global_role_id"
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "global_role_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -67,6 +67,9 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     celluloid (0.12.4)
       facter (>= 1.6.12)
       timers (>= 1.0.0)
@@ -164,6 +167,7 @@ GEM
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
     orm_adapter (0.4.0)
+    pg (0.14.1)
     polyglot (0.3.3)
     pyu-ruby-sasl (0.0.3.3)
     quiet_assets (1.0.1)
@@ -218,6 +222,7 @@ GEM
       redis (~> 3.0.0)
     ref (1.0.2)
     remotipart (1.0.2)
+    rmagick (2.13.2)
     rubyntlm (0.1.1)
     sass (3.2.5)
     sass-rails (3.2.6)
@@ -275,6 +280,7 @@ PLATFORMS
 DEPENDENCIES
   cancan
   capistrano
+  carrierwave
   codemirror-rails
   coffee-rails (~> 3.2.1)
   daemon
@@ -295,6 +301,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-ldap!
+  pg
   quiet_assets
   rails (= 3.2.11)
   rails_admin
@@ -302,6 +309,7 @@ DEPENDENCIES
   redis
   redis-namespace
   remotipart
+  rmagick
   sass-rails (~> 3.2.3)
   sidekiq
   sidekiq-failures

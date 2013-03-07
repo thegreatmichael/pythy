@@ -1,0 +1,9 @@
+= pythy_form_for @image, :html => {:multipart => true} do |f|
+  = f.text_field :name 
+  = f.hidden_field :user_id, :value=>current_user.id 
+  = f.file_field :filename 
+
+  = f.text_field :remote_filename_url 
+
+  = f.actions do
+    = f.submit
